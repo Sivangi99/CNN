@@ -46,7 +46,7 @@ data : Bunch
 Dictionary-like object, the interesting attributes are: ‘data’, the data to learn, ‘target’, the classification labels, ‘target_names’, the meaning of the labels, ‘feature_names’, the meaning of the features, and ‘DESCR’, the full description of the dataset.
 (data, target) : tuple if return_X_y is True
 
-sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(100, ), activation=’relu’, solver=’adam’, alpha=0.0001, batch_size=’auto’, learning_rate=’constant’, learning_rate_init=0.001, power_t=0.5, max_iter=200, shuffle=True, random_state=None, tol=0.0001, verbose=False, warm_start=False, momentum=0.9, nesterovs_momentum=True, early_stopping=False, validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08)[source]
+sklearn.neural_network.MLPClassifier(hidden_layer_sizes=(100, ), activation=’relu’, solver=’adam’, alpha=0.0001, batch_size=’auto’, learning_rate=’constant’, learning_rate_init=0.001, power_t=0.5, max_iter=200, shuffle=True, random_state=None, tol=0.0001, verbose=False, warm_start=False, momentum=0.9, nesterovs_momentum=True, early_stopping=False, validation_fraction=0.1, beta_1=0.9, beta_2=0.999, epsilon=1e-08)
 Multi-layer Perceptron classifier.
 This model optimizes the log-loss function using LBFGS or stochastic gradient descent.
 New in version 0.18.
@@ -124,6 +124,40 @@ out_activation_ : string
 Name of the output activation function.
 
 Methods
-fit(X, y)	Fit the model to data matrix X and target(s) y.
+
+fit(X, y)	
+Fit the model to data matrix X and target(s) y.
+Parameters:	
+X : array-like or sparse matrix, shape (n_samples, n_features)
+The input data.
+y : array-like, shape (n_samples,) or (n_samples, n_outputs)
+The target values (class labels in classification, real numbers in regression).
+Returns:	
+self : returns a trained MLP model.
+
+predict(X)
+Predict using the multi-layer perceptron classifier
+Parameters:	
+X : {array-like, sparse matrix}, shape (n_samples, n_features)
+The input data.
+Returns:	
+y : array-like, shape (n_samples,) or (n_samples, n_classes)
+The predicted classes.
+
+score(X, y, sample_weight=None)
+Returns the mean accuracy on the given test data and labels.
+In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+Parameters:	
+X : array-like, shape = (n_samples, n_features)
+Test samples.
+y : array-like, shape = (n_samples) or (n_samples, n_outputs)
+True labels for X.
+sample_weight : array-like, shape = [n_samples], optional
+Sample weights.
+Returns:	
+score : float
+Mean accuracy of self.predict(X) wrt. y.
+
+
 
 
